@@ -32,7 +32,7 @@ app.post('/crawl', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Server đang chạy trên cổng ${port}`);
 });
