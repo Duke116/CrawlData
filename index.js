@@ -1,6 +1,6 @@
 import express from 'express';
 import axios from 'axios';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio'; // ✅ Cách đúng để import cheerio
 
 const app = express();
 app.use(express.json());
@@ -19,7 +19,7 @@ app.post('/crawl', async (req, res) => {
     const results = [];
 
     $('.js__product-link-for-product-id').each((i, el) => {
-      if (i >= 5) return false; // Giới hạn 5 kết quả
+      if (i >= 5) return false;
       results.push({
         title: $(el).text().trim(),
         link: 'https://batdongsan.com.vn' + $(el).attr('href')
